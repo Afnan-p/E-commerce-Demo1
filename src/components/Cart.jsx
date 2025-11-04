@@ -4,6 +4,9 @@ import { GrClose } from "react-icons/gr";
 
 const Cart = ({setShowCart,cartItems,setCartItems}) => {
     // console.log(cartItems,"daaatatatat");
+    const [cartnull,setCartnull]=useState(false)
+
+
     
        function Removeitem(id) {
         // console.log(product,"prooooo");
@@ -22,7 +25,10 @@ const Cart = ({setShowCart,cartItems,setCartItems}) => {
             </div>
             <div className='Cart-content p-3'>
                 <div className='row'>
-              {cartItems.map((item,index )=>(
+                  {cartItems.length === 0 ?(
+                    <p style={{ color: "gray" }}>No cart items yet.</p>
+                  ):(
+              cartItems.map((item,index )=>(
           <div className='cart-product col-md-12 mb-3 d-flex gap-4 ' key={index} style={{width:'auto', height:'auto'}}>
            <img className='cardimage p-3' src={item.image} alt="rdfghjk" style={{ height: '150px',width:'150px', objectFit: 'contain' }} />
            <div className='Product-details'>
@@ -42,7 +48,7 @@ const Cart = ({setShowCart,cartItems,setCartItems}) => {
            </div>
            </div>
             </div>
-              ))}
+              )))}
 </div>
             </div>
              <div className='Promocode p-2'><input type="text" placeholder='Enter Your Promocode'

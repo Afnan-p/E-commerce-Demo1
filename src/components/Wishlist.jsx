@@ -23,7 +23,11 @@ export const Wishlist = ({wishlist,setShowWishlist,setWishlist}) => {
                 </div>
                 <div className='Cart-content p-3'>
                     <div className='row'>
-                  {wishlist.map((item,index )=>(
+                      {wishlist.length === 0 ?(
+                   <p style={{ color: "gray" }}>No Wish items yet.</p>
+
+                      ):(
+                  wishlist.map((item,index )=>(
               <div className='cart-product col-md-12 mb-3 d-flex gap-4 ' key={index} style={{width:'auto', height:'auto'}}>
                <img className='cardimage p-3' src={item.image} alt="rdfghjk" style={{ height: '150px',width:'150px', objectFit: 'contain' }} />
                <div className='Product-details'>
@@ -43,7 +47,7 @@ export const Wishlist = ({wishlist,setShowWishlist,setWishlist}) => {
                </div>
                </div>
                 </div>
-                  ))}
+                  ))) }
     </div>
                 </div>
                   
