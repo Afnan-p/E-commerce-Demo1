@@ -2,13 +2,26 @@ import React, { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'; // ensure Bootstrap is imported
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
-export const Header = ({setShowCart,setShowWishlist}) => {
+export const Header = ({setShowCart,setShowWishlist,data}) => {
     const [showSearch, setShowSearch] = useState(false)
+    const [searchData,setSearchData]=useState("")
      
   const toggleSearch = (e) => {
    
     setShowSearch(!showSearch)
     // console.log(showSearch,"searchhhh");
+    
+  }
+  function searchhandle(e) {
+    setSearchData(e.target.value)
+    console.log(searchData,"searchhhh");
+
+
+    let search=data.filter((value)=>{
+       value.tittle.includes(e.target.value)
+      console.log(search,"searchhhh");
+      
+    })
     
   }
 
@@ -41,7 +54,7 @@ type='button'
         <div className=" Header-icon  d-flex" style={{ gap: '50px' }} id="navbarContent">
    {showSearch && (
            <form className="d-flex gap-4 "  >
-      <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+      <input onChange={searchhandle} className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
        <button className="Header-search-btn btn btn-outline-secondary" type="submit">
                 Search
               </button>

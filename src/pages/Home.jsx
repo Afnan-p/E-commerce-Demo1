@@ -65,7 +65,7 @@ function hundlewishlist(id) {
     <>
     <div className='All-home'>
      
-    <Header setShowCart={setShowCart} setShowWishlist={setShowWishlist}/>
+    <Header setShowCart={setShowCart} setShowWishlist={setShowWishlist} data={data}/>
     <Prodect/>
     {showCart&&<Cart setShowCart={setShowCart} cartItems={cartItems} setCartItems={setCartItems}/>}
 {showWishlist&& <Wishlist wishlist={wishlist} setShowWishlist={setShowWishlist} setWishlist={setWishlist}/>}
