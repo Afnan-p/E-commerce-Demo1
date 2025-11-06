@@ -27,13 +27,17 @@ function Home() {
 
   function handleAddToCart(id) {
     const result=data.find((value)=>value.id === id)
-    const temp=[...cartItems,result]
-    setCartItems(temp)
+     const exist=cartItems.some((item)=>item.id===id)
   // console.log(cartItems,"TEEMP"); 
-  toast.success('Successfully Added!')
-  
-  
 
+ if(!exist){
+  const list=[...cartItems,result] 
+  setCartItems(list)
+ }else{
+  alert("This item is already in your Cart!")
+ }
+
+    toast.success('Successfully Added!')
   
   
   }

@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { GrClose } from "react-icons/gr";
 
-export const Wishlist = ({wishlist,setShowWishlist,setWishlist}) => {
+export const Wishlist = ({wishlist,setShowWishlist,setWishlist,showWishlist}) => {
 
 
     function removewishlist(id) {
@@ -11,12 +11,32 @@ export const Wishlist = ({wishlist,setShowWishlist,setWishlist}) => {
         
 
     }
+    const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    // start animation slightly after mount
+    const timer = setTimeout(() => setAnimate(true), 10);
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <>
     
-       <div className='Cart-page'style={{ position: 'absolute', right:'0' ,top:'180px',zIndex:'10'}}>
+       <div className='Wish-list'style={{ position: 'absolute',
+        right: '0',
+        top: '200px',
+        zIndex: '10',
+        width: '550px',
+        height: 'auto',
+        background: 'white',
+        borderRadius: '10px',
+        border: 'solid 3px #939090ff',
+        padding:'10px',
+        transition: 'transform 0.4s ease',
+        transform: animate ? 'translateX(0)' : 'translateX(100%)'}}>
+
+
         <div className='row'>
-            <div className='container-fluid align-items-center 'style={{border:'solid',width:'auto', height:'auto',borderRadius:'10px',background:'white'}}>
+            <div className='container-fluid align-items-center '>
                 <div className=' Cart-Head d-flex  justify-content-between mt-3'style={{gap:'300px'}}>
                     <div><h2>Wishlist</h2></div>
                     <button onClick={()=>setShowWishlist(false)} className='Cart-close-btn'style={{border:'none',background:'none'}}><div className=' fa-solid fa-square-xmark fa-2xl mt-3 '  style={{color:'#ff5757'}}></div></button>
