@@ -86,7 +86,7 @@ function hundlewishlist(id) {
 
 <div className='Categories d-flex 'style={{ gap: '100px' }}>
 <div className='Categories-h2'><h2 style={{fontSize:'60px'}}>Our Top Categories</h2></div>
-<div style={{fontSize:'30px'}}>Sorted By:  <button className='sort-btn  btn-outline-secondary'>All Category</button></div>
+<div style={{fontSize:'25px'}}>Sorted By:  <button className='sort-btn '>All Category</button></div>
   </div>
 
 

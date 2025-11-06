@@ -20,7 +20,7 @@ export const Wishlist = ({wishlist,setShowWishlist,setWishlist,showWishlist}) =>
   }, []);
   return (
     <>
-    
+    <div className='row'>
        <div className='Wish-list'style={{ position: 'absolute',
         right: '0',
         top: '200px',
@@ -35,9 +35,9 @@ export const Wishlist = ({wishlist,setShowWishlist,setWishlist,showWishlist}) =>
         transform: animate ? 'translateX(0)' : 'translateX(100%)'}}>
 
 
-        <div className='row'>
+        
             <div className='container-fluid align-items-center '>
-                <div className=' Cart-Head d-flex  justify-content-between mt-3'style={{gap:'300px'}}>
+                <div className=' Cart-Head d-flex  justify-content-between mt-3'style={{gap:'150px',width: 'auto'}}>
                     <div><h2>Wishlist</h2></div>
                     <button onClick={()=>setShowWishlist(false)} className='Cart-close-btn'style={{border:'none',background:'none'}}><div className=' fa-solid fa-square-xmark fa-2xl mt-3 '  style={{color:'#ff5757'}}></div></button>
                     
