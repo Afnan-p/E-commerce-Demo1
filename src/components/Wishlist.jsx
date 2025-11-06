@@ -14,17 +14,18 @@ export const Wishlist = ({wishlist,setShowWishlist,setWishlist}) => {
   return (
     <>
     
-       <div className='Cart-page'style={{ position: 'absolute', right:'0' ,top:'200px',zIndex:'10'}}>
-            <div className='container-fluid align-items-center 'style={{border:'solid',width:'550px', height:'auto',borderRadius:'10px',background:'white'}}>
-                <div className='Cart-Head d-flex justify-content-between mt-3'>
+       <div className='Cart-page'style={{ position: 'absolute', right:'0' ,top:'180px',zIndex:'10'}}>
+        <div className='row'>
+            <div className='container-fluid align-items-center 'style={{border:'solid',width:'auto', height:'auto',borderRadius:'10px',background:'white'}}>
+                <div className=' Cart-Head d-flex  justify-content-between mt-3'style={{gap:'300px'}}>
                     <div><h2>Wishlist</h2></div>
-                    <button onClick={()=>setShowWishlist(false)} className='Cart-close-btn'style={{border:'none',background:'none'}}><div className=' fa-solid fa-square-xmark fa-2xl mt-3 '  style={{color:'red'}}></div></button>
+                    <button onClick={()=>setShowWishlist(false)} className='Cart-close-btn'style={{border:'none',background:'none'}}><div className=' fa-solid fa-square-xmark fa-2xl mt-3 '  style={{color:'#ff5757'}}></div></button>
                     
                 </div>
                 <div className='Cart-content p-3'>
-                    <div className='row'>
+                    
                       {wishlist.length === 0 ?(
-                   <p style={{ color: "gray" }}>No Wish items yet.</p>
+                   <p style={{ color: "gray",fontSize:'20px' }}>No Wish items yet!</p>
 
                       ):(
                   wishlist.map((item,index )=>(
@@ -40,9 +41,9 @@ export const Wishlist = ({wishlist,setShowWishlist,setWishlist}) => {
                <div className='d-flex  mt-4 gap-4 mb-3'>
                <div className='price'style={{fontSize:'25px'}}><b>Rs{item.price*20}/-</b></div>
                <div className='+-btns d-flex '> 
-                <div className='negative fa-solid fa-square-minus fa-2xl mt-3'style={{color:'red'}}></div>
+                <div className='negative fa-solid fa-square-minus fa-2xl mt-3'style={{color:'#ff5757'}}></div>
                 <div className='box ms-2'></div>
-                <div className='plus fa-solid fa-square-plus fa-2xl ms-2 mt-3'style={{color:'red'}}> </div>
+                <div className='plus fa-solid fa-square-plus fa-2xl ms-2 mt-3'style={{color:'#ff5757'}}> </div>
                </div>
                </div>
                </div>

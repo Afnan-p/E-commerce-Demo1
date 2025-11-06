@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'; // ensure Bootstrap is imported
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import  './Header.css'
 
 export const Header = ({setShowCart,setShowWishlist,data}) => {
     const [showSearch, setShowSearch] = useState(false)
@@ -13,15 +14,15 @@ export const Header = ({setShowCart,setShowWishlist,data}) => {
     
   }
   function searchhandle(e) {
-    setSearchData(e.target.value)
-    console.log(searchData,"searchhhh");
+    const value = e.target.value
+    setSearchData(value)
+    console.log(value,"searchhhh");
 
 
-    let search=data.filter((value)=>{
-       value.tittle.includes(e.target.value)
-      console.log(search,"searchhhh");
-      
-    })
+    const filtered = data.filter((item) =>
+      item.title.toLowerCase().includes(value.toLowerCase())
+    )
+    console.log(filtered, "filtered results")
     
   }
 
@@ -36,7 +37,7 @@ export const Header = ({setShowCart,setShowWishlist,data}) => {
         </div>
 
 
-
+ {/* Toggle button */}
 <button className='navbar-toggler'
 type='button'
  data-bs-toggle="collapse"
@@ -51,10 +52,11 @@ type='button'
         
 
         {/* Icon Section>>>>>>>>> */}
-        <div className=" Header-icon  d-flex" style={{ gap: '50px' }} id="navbarContent">
+         <div className="collapse navbar-collapse justify-content-end" id="navbarContent">
+        <div className=" Header-icon  d-flex" style={{ gap: '50px' }} >
    {showSearch && (
            <form className="d-flex gap-4 "  >
-      <input onChange={searchhandle} className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+      <input onChange={searchhandle} className="form-control me-2" value={searchData} type="search" placeholder="Search" aria-label="Search"/>
        <button className="Header-search-btn btn btn-outline-secondary" type="submit">
                 Search
               </button>
@@ -68,7 +70,7 @@ type='button'
          <i className="Header-icon mt-4 fa-regular fa-heart fa-xl"onClick={()=>setShowWishlist(true)}></i>
          <i className="Header-icon mt-4 fa-regular fa-user  fa-xl"></i>
         </div>
-     
+     </div>
       </nav>
 
       <div className='Header-Category d-flex justify-content-center gap-5  border-bottom  container-fluid py-3'>

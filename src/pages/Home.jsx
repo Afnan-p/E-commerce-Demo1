@@ -3,11 +3,14 @@ import { Header } from '../components/Header'
 import Prodect from '../components/Prodect'
 import Cart from '../components/Cart';
 import { Wishlist } from '../components/Wishlist';
+import toast, { Toaster } from 'react-hot-toast';
+
+
 // import Cart from '../components/Cart'
 
 function Home() {
    const [data, setData] = useState([]);
-   const [liked, setLiked] = useState(false);  
+  //  const [liked, setLiked] = useState(false);  
    const [cartItems,  setCartItems] = useState([]);  
    const[showCart,setShowCart]=useState(false)
    const[wishlist,setWishlist]=useState([])
@@ -27,6 +30,11 @@ function Home() {
     const temp=[...cartItems,result]
     setCartItems(temp)
   // console.log(cartItems,"TEEMP"); 
+  toast.success('Successfully Added!')
+  
+  
+
+  
   
   }
 function hundlewishlist(id) {
@@ -64,6 +72,7 @@ function hundlewishlist(id) {
   return (
     <>
     <div className='All-home'>
+
      
     <Header setShowCart={setShowCart} setShowWishlist={setShowWishlist} data={data}/>
     <Prodect/>
@@ -85,7 +94,7 @@ function hundlewishlist(id) {
           <div className='col-md-3 col-sm-6 mb-3'key={product.id}>
             <div className='card  text-center '>
 
-              <div className='Like-heart' style={{position:'relative', left:'160px'}}>
+              <div className='Like-heart' style={{position:'absolute',right:'2px'}}>
                 <button className='Like-icon-btn mt-3' onClick={()=>hundlewishlist(product.id)}>
                   <i
     className={`fa-heart ${likedList.includes(product.id) ? 'fa-solid fa-2xl' : 'fa-regular fa-2xl'}`}
@@ -131,7 +140,10 @@ function hundlewishlist(id) {
   {/* <Cart  cartItems={cartItems} setCartItems={setCartItems}/> */}
 </div>
 </div>
-
+<Toaster
+  position="top-center"
+  reverseOrder={false}
+/>
     </>
   )
 }
