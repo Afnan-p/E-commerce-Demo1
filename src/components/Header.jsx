@@ -3,9 +3,9 @@ import 'bootstrap/dist/css/bootstrap.min.css'; // ensure Bootstrap is imported
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import  './Header.css'
 
-export const Header = ({setShowCart,setShowWishlist,data}) => {
-    const [showSearch, setShowSearch] = useState(false)
-    const [searchData,setSearchData]=useState("")
+export const Header = ({setShowCart,setShowWishlist,setShowSearch,showSearch,searchhandle,searchData}) => {
+    // const [showSearch, setShowSearch] = useState(false)
+    
      
   const toggleSearch = (e) => {
    
@@ -13,18 +13,8 @@ export const Header = ({setShowCart,setShowWishlist,data}) => {
     // console.log(showSearch,"searchhhh");
     
   }
-  function searchhandle(e) {
-    const value = e.target.value
-    setSearchData(value)
-    console.log(value,"searchhhh");
-
-
-    const filtered = data.filter((item) =>
-      item.title.toLowerCase().includes(value.toLowerCase())
-    )
-    console.log(filtered, "filtered results")
-    
-  }
+  
+  
 
   return (
 
@@ -57,9 +47,7 @@ type='button'
    {showSearch && (
            <form className="d-flex gap-4 "  >
       <input onChange={searchhandle} className="form-control me-2" value={searchData} type="search" placeholder="Search" aria-label="Search"/>
-       <button className="Header-search-btn btn btn-outline-secondary" type="submit">
-                Search
-              </button>
+       
        </form>
    )}
    <button onClick={toggleSearch} className="Header-search-btn  " type="button">
